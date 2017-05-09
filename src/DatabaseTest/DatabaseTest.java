@@ -87,7 +87,7 @@ public class DatabaseTest {
     // Insert new sale transaction
     SaleTransaction saleTransaction;
     saleTransaction = new SaleTransaction(new Date(),"cake", 5, (long) 2, (long) 10);
-    //saleTransaction.save();
+    saleTransaction.save();
     System.out.println("\nAfter saved one sale transaction:\n");
     
     // Show updated database
