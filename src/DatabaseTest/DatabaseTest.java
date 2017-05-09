@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import java.util.Date;
 
 /**
  *
@@ -68,13 +69,27 @@ public class DatabaseTest {
     private static void displayResult(List resultList) {
         for(Object o : resultList) {
             Sale sale = (Sale)o;
-            System.out.println(sale.getProductName());
+            System.out.print("Date: " + sale.getDate() + " ");
+            System.out.print("Name: " + sale.getProductName() + "\t");
+            System.out.print("Qty: " + sale.getQuantity() + "\t");
+            System.out.print("UP: $" + sale.getUnitCost() + "\t");
+            System.out.print("Total: $" + sale.getTotalCost());
+            System.out.println();
         }
     }
   
   public static void main(String[] args) {
-    //initDB();
+
     runQueryAll();
+    
+    SaleTransaction saleTransaction;
+    saleTransaction = new SaleTransaction(new Date(),"cake", 5, (long) 2, (long) 10);
+    //saleTransaction.save();
+    System.out.println();
+    System.out.println("After save one sale transaction:");
+    System.out.println();
+    runQueryAll();
+    
     
   }
   
