@@ -5,7 +5,10 @@
         <group>
             <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/hibernate.cfg.xml</file>
             <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/DatabaseTest/DatabaseTest.java</file>
+            <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/DatabaseTest/SaleTransaction.java</file>
+            <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/cs157b/entity/Sale.java</file>
             <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/hibernate.reveng.xml</file>
+            <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/DatabaseTest/QuerySale.java</file>
             <file>file:/Users/EPSO/NetBeansProjects/DatabaseTest/src/cs157b/util/HibernateUtil.java</file>
         </group>
     </open-files>

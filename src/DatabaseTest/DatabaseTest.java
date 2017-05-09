@@ -100,7 +100,7 @@ public class DatabaseTest {
     System.out.println("\nTrying to fetch Date from 2017-05-02 to 2017-05-04 transactions:\n");
     query.fetchDateInterval("2017-05-02", "2017-05-04");
     
-    System.out.println("\nTrying to fetch May, 2017 total sales:\n");
+    System.out.println("\nTrying to fetch May, 2017 total sales: $\n");
     query.fetchTotalIncomeByMonth(2017, 5);
   }
   
