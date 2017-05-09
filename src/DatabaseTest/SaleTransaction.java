@@ -44,6 +44,8 @@ public class SaleTransaction {
     } catch (HibernateException he) {
         he.printStackTrace();
         session.getTransaction().rollback();
+    } finally {
+        session.close();
     }
   }
 }

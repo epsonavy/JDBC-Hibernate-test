@@ -40,7 +40,6 @@ public class DatabaseTest {
       //command.execute("INSERT INTO sale_transaction VALUES"
        // + " ('2017-05-01', 'Apple', '10', '2', '20');");
 
-
     } catch (SQLException ex) {
       Logger.getLogger(DatabaseTest.class.getName()).log(Level.SEVERE, null, ex);
     } finally {
@@ -54,8 +53,8 @@ public class DatabaseTest {
     }
 
     private static void executeHQLQuery(String hql) {
-        try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
+      Session session = HibernateUtil.getSessionFactory().openSession();
+      try {          
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List resultList = q.list();
@@ -63,7 +62,9 @@ public class DatabaseTest {
             session.getTransaction().commit();
         } catch (HibernateException he) {
             he.printStackTrace();
-        }
+        } finally {
+          session.close();
+       }
     }
     
     private static void displayResult(List resultList) {
@@ -80,17 +81,27 @@ public class DatabaseTest {
   
   public static void main(String[] args) {
 
+    // Show original database
     runQueryAll();
     
+    // Insert new sale transaction
     SaleTransaction saleTransaction;
     saleTransaction = new SaleTransaction(new Date(),"cake", 5, (long) 2, (long) 10);
     //saleTransaction.save();
-    System.out.println();
-    System.out.println("After save one sale transaction:");
-    System.out.println();
+    System.out.println("\nAfter saved one sale transaction:\n");
+    
+    // Show updated database
     runQueryAll();
     
+    QuerySale query = new QuerySale();
+    System.out.println("\nTrying to fetch all Apple product:\n");
+    query.fetchProduct("Apple");
     
+    System.out.println("\nTrying to fetch Date from 2017-05-02 to 2017-05-04 transactions:\n");
+    query.fetchDateInterval("2017-05-02", "2017-05-04");
+    
+    System.out.println("\nTrying to fetch May, 2017 total sales:\n");
+    query.fetchTotalIncomeByMonth(2017, 5);
   }
   
 }
