@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cs157b.entity.Sale" table="sale" catalog="hibernate" optimistic-lock="version">
+        <id name="date" type="date">
+            <column name="Date" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="productName" type="string">
+            <column name="ProductName" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="Quantity" />
+        </property>
+        <property name="unitCost" type="java.lang.Long">
+            <column name="UnitCost" precision="10" scale="0" />
+        </property>
+        <property name="totalCost" type="java.lang.Long">
+            <column name="TotalCost" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
